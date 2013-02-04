@@ -17,7 +17,11 @@ decoders =
     cb
       ping: count
       age: Math.floor(count / (86400 / 64))
-  
+      
+   lightNode: (raw, cb) ->
+     cb
+       value: raw[1]
+
   homePower: (raw, cb) ->
     ints = (raw.readUInt16LE(1+2*i, true) for i in [0..5])
     cb
